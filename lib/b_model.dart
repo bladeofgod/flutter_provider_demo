@@ -10,4 +10,10 @@ class BModel extends ChangeNotifier{
   BModel(){
     content = "init b model";
   }
+
+  setNewValue(String value){
+    content = "b model : $value";
+    notifyListeners();
+  }
+
 }

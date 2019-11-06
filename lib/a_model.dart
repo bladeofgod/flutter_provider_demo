@@ -11,5 +11,9 @@ class AModel extends ChangeNotifier{
     content = "init a model";
   }
 
+  setNewValue(String value){
+    content = "a model $value";
+    notifyListeners();
+  }
 
 }

@@ -3,6 +3,7 @@ import 'package:flutter_provider_demo/a_model.dart';
 import 'package:flutter_provider_demo/b_model.dart';
 import 'package:flutter_provider_demo/c_model.dart';
 import 'package:flutter_provider_demo/global_providers.dart' as prefix0;
+import 'package:flutter_provider_demo/next_page.dart';
 import 'package:provider/provider.dart';
 
 void main(){
@@ -54,7 +55,19 @@ class _MyHomePageState extends State<MyHomePage> {
               child: Column(
                 children: <Widget>[
                   Text(
-                    "$info",
+                    "${amodel.content}",
+                    style: TextStyle(
+                        fontSize: 20,color: Colors.black
+                    ),
+                  ),
+                  Text(
+                    "${bmodel.content}",
+                    style: TextStyle(
+                        fontSize: 20,color: Colors.black
+                    ),
+                  ),
+                  Text(
+                    "${cmodel.content}",
                     style: TextStyle(
                         fontSize: 20,color: Colors.black
                     ),
@@ -82,6 +95,14 @@ class _MyHomePageState extends State<MyHomePage> {
                       });
                     },
                     child: Text("show c model"),
+                  ),
+                  RaisedButton(
+                    child: Text("change model value"),
+                    onPressed: (){
+                      cmodel.updateValue("this is new value");
+                      Navigator.of(context).push(new MaterialPageRoute
+                        (builder: (ctx)=> NextPage()));
+                    },
                   ),
                 ],
               ),
